@@ -10,10 +10,14 @@ import java.sql.SQLException;
 import java.util.HashSet;
 import java.util.Set;
 
-public class PersonaDao {
+public class PersonaDao extends ObjetoJDBC {
 
-	private Connection obtenerConexion() {
-		//Utilice aquí su motor de BD preferido
+	public PersonaDao(String subprotocolo, String subnombre, String user, String password) {
+		super(subprotocolo, subnombre, user, password);
+	}
+
+	private Connection obtenerConexion() throws SQLException {
+		return super.getConnection();
 	}
 
 	public Persona personaPorId(int id) {
